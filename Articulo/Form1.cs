@@ -10,8 +10,11 @@ using System.Windows.Forms;
 
 namespace Articulo
 {
+
     public partial class formPrincipal : Form
     {
+        private List<Articulo> listaArticulo;
+
         public formPrincipal()
         {
             InitializeComponent();
@@ -20,7 +23,31 @@ namespace Articulo
         private void formPrincipal_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            dgvArticulo.DataSource = negocio.listar();
+            listaArticulo = negocio.listar();
+            dgvArticulo.DataSource = listaArticulo;
+
+            cargarImagen(listaArticulo[0].ImagenUrl);
         }
+
+        private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
+        {
+             Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+            cargarImagen(seleccionado.ImagenUrl);
+        }
+
+        private void cargarImagen(string imagen) 
+        {
+            try
+            {
+                pboArticulo.Load(imagen);
+
+            }
+            catch (Exception ex)
+            {
+                pboArticulo.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
+            }
+        }
+
+
     }
 }
