@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using Dominio;
 
-namespace Articulo
+namespace Negocio
 {
     public class ArticuloNegocio
     {
@@ -21,7 +22,7 @@ namespace Articulo
             {
                 conexion.ConnectionString = "server= .\\SQLEXPRESS;  database = CATALOGO_DB; Integrated Security = true";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "Select Codigo, Nombre, Precio, ImagenUrl from ARTICULOS";
+                comando.CommandText = "Select Codigo, Nombre, Precio, ImagenUrl, M.Descripcion as Marca from ARTICULOS A, MARCAS M where M.Id = A.IdMarca";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -34,6 +35,9 @@ namespace Articulo
                     auxiliar.Nombre = (string)lector["Nombre"];
                     auxiliar.Precio = lector.GetDecimal(lector.GetOrdinal("Precio"));
                     auxiliar.ImagenUrl = (string)lector["ImagenUrl"];
+
+                    auxiliar.Marca = new Marca();
+                    auxiliar.Marca.Descripcion = (string)lector["Marca"];
 
                     lista.Add(auxiliar);
                 }

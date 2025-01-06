@@ -7,13 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
+using Negocio;
 
-namespace Articulo
+
+namespace Presentacion
 {
 
     public partial class formPrincipal : Form
     {
-        private List<Articulo> listaArticulo;
+        private List<Dominio.Articulo> listaArticulo;
 
         public formPrincipal()
         {
@@ -25,13 +28,14 @@ namespace Articulo
             ArticuloNegocio negocio = new ArticuloNegocio();
             listaArticulo = negocio.listar();
             dgvArticulo.DataSource = listaArticulo;
+            dgvArticulo.Columns["ImagenUrl"].Visible = false;
 
             cargarImagen(listaArticulo[0].ImagenUrl);
         }
 
         private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
         {
-             Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+             Dominio.Articulo seleccionado = (Dominio.Articulo)dgvArticulo.CurrentRow.DataBoundItem;
             cargarImagen(seleccionado.ImagenUrl);
         }
 
@@ -39,12 +43,12 @@ namespace Articulo
         {
             try
             {
-                pboArticulo.Load(imagen);
+                pbxArticulo.Load(imagen);
 
             }
             catch (Exception ex)
             {
-                pboArticulo.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
+                pbxArticulo.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
             }
         }
 

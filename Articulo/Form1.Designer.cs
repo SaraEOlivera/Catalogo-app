@@ -1,4 +1,4 @@
-﻿namespace Articulo
+﻿namespace Presentacion
 {
     partial class formPrincipal
     {
@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.dgvArticulo = new System.Windows.Forms.DataGridView();
-            this.pboArticulo = new System.Windows.Forms.PictureBox();
+            this.pbxArticulo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboArticulo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvArticulo
@@ -43,27 +43,27 @@
             this.dgvArticulo.TabIndex = 0;
             this.dgvArticulo.SelectionChanged += new System.EventHandler(this.dgvArticulo_SelectionChanged);
             // 
-            // pboArticulo
+            // pbxArticulo
             // 
-            this.pboArticulo.Location = new System.Drawing.Point(517, 71);
-            this.pboArticulo.Name = "pboArticulo";
-            this.pboArticulo.Size = new System.Drawing.Size(171, 150);
-            this.pboArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pboArticulo.TabIndex = 1;
-            this.pboArticulo.TabStop = false;
+            this.pbxArticulo.Location = new System.Drawing.Point(517, 71);
+            this.pbxArticulo.Name = "pbxArticulo";
+            this.pbxArticulo.Size = new System.Drawing.Size(171, 150);
+            this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxArticulo.TabIndex = 1;
+            this.pbxArticulo.TabStop = false;
             // 
             // formPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(705, 238);
-            this.Controls.Add(this.pboArticulo);
+            this.Controls.Add(this.pbxArticulo);
             this.Controls.Add(this.dgvArticulo);
             this.Name = "formPrincipal";
             this.Text = "Formulario Principal";
             this.Load += new System.EventHandler(this.formPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboArticulo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -71,7 +71,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvArticulo;
-        private System.Windows.Forms.PictureBox pboArticulo;
+        private System.Windows.Forms.PictureBox pbxArticulo;
     }
 }
 
