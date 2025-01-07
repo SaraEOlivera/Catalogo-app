@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Articulo;
 using Dominio;
 using Negocio;
 
@@ -52,6 +53,10 @@ namespace Presentacion
             }
         }
 
-
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            FrmAltaArticulo alta = new FrmAltaArticulo();
+            alta.ShowDialog();
+        }
     }
 }

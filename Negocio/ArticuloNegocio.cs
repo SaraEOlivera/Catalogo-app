@@ -55,5 +55,33 @@ namespace Negocio
                 conexion.Close();
             }
         }
+
+        public void agregar(Articulo nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Precio) VALUES ("
+                            + nuevo.Codigo + ", '"
+                            + nuevo.Nombre + "', "
+                            + nuevo.Precio + ")");
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally 
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
     }
+
+
+
 }
