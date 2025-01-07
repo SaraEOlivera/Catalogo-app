@@ -62,10 +62,12 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Precio) VALUES ("
+                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Precio, IdMarca, IdCategoria) VALUES ("
                             + nuevo.Codigo + ", '"
                             + nuevo.Nombre + "', "
-                            + nuevo.Precio + ")");
+                            + nuevo.Precio + ", @IdMarca, @IdCategoria)");
+                datos.setearParametro("@IdMarca", nuevo.Marca.Id);
+                datos.setearParametro("@IdCategoria", nuevo.Categoria.Id);
 
                 datos.ejecutarAccion();
             }

@@ -34,6 +34,9 @@ namespace Articulo
                 nuevoArticulo.Nombre = txtNombre.Text;
                 nuevoArticulo.Precio = decimal.Parse(txtPrecio.Text);
 
+                nuevoArticulo.Marca = (Marca)cboMarca.SelectedItem;
+                nuevoArticulo.Categoria = (Categoria)cboCategoria.SelectedItem;
+
                 datos.agregar(nuevoArticulo);
                 MessageBox.Show("Articulo Agregado");
                 Close();
@@ -42,6 +45,21 @@ namespace Articulo
             {
 
                 MessageBox.Show(ex.ToString()); ;
+            }
+        }
+
+        private void FrmAltaArticulo_Load(object sender, EventArgs e)
+        {
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+            try
+            {
+                cboMarca.DataSource = marcaNegocio.listar();
+                cboCategoria.DataSource = categoriaNegocio.listar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
     }
