@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Negocio;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Articulo
 {
@@ -33,6 +34,7 @@ namespace Articulo
                 nuevoArticulo.Codigo = txtCodigo.Text;
                 nuevoArticulo.Nombre = txtNombre.Text;
                 nuevoArticulo.Precio = decimal.Parse(txtPrecio.Text);
+                nuevoArticulo.ImagenUrl = txtImagenUrl.Text;
 
                 nuevoArticulo.Marca = (Marca)cboMarca.SelectedItem;
                 nuevoArticulo.Categoria = (Categoria)cboCategoria.SelectedItem;
@@ -60,6 +62,25 @@ namespace Articulo
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void txtImagenUrl_Leave(object sender, EventArgs e)
+        {
+            cargarImagen(txtImagenUrl.Text);
+        }
+
+        //Evento copiado del form1
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pboArticulo.Load(imagen);
+
+            }
+            catch (Exception ex)
+            {
+                pboArticulo.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,14 @@ namespace Dominio
 {
     public class Articulo
     {
+        [DisplayName("Código")]
         public string Codigo { get; set; }
         public string Nombre { get; set; }
         public decimal Precio { get; set; }
         public string ImagenUrl { get; set; }
         public Marca Marca { get; set; }
+
+        [DisplayName("Categoría")]
         public Categoria Categoria { get; set; }
 
     }

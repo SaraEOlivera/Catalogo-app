@@ -26,12 +26,7 @@ namespace Presentacion
 
         private void formPrincipal_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            listaArticulo = negocio.listar();
-            dgvArticulo.DataSource = listaArticulo;
-            dgvArticulo.Columns["ImagenUrl"].Visible = false;
-
-            cargarImagen(listaArticulo[0].ImagenUrl);
+            cargar();
         }
 
         private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
@@ -40,16 +35,35 @@ namespace Presentacion
             cargarImagen(seleccionado.ImagenUrl);
         }
 
+        private void cargar() 
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                listaArticulo = negocio.listar();
+                dgvArticulo.DataSource = listaArticulo;
+                dgvArticulo.Columns["ImagenUrl"].Visible = false;
+                dgvArticulo.Columns["Categoria"].Visible = false;
+
+                cargarImagen(listaArticulo[0].ImagenUrl);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
         private void cargarImagen(string imagen) 
         {
             try
             {
-                pbxArticulo.Load(imagen);
+                pboArticulo.Load(imagen);
 
             }
             catch (Exception ex)
             {
-                pbxArticulo.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
+                pboArticulo.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
             }
         }
 
@@ -57,6 +71,7 @@ namespace Presentacion
         {
             FrmAltaArticulo alta = new FrmAltaArticulo();
             alta.ShowDialog();
+            cargar();
         }
     }
 }

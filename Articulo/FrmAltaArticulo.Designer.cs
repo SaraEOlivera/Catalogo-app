@@ -40,6 +40,10 @@
             this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.lblMarca = new System.Windows.Forms.Label();
             this.lblCategoria = new System.Windows.Forms.Label();
+            this.pboArticulo = new System.Windows.Forms.PictureBox();
+            this.lblImagenUrl = new System.Windows.Forms.Label();
+            this.txtImagenUrl = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pboArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCodigo
@@ -56,11 +60,11 @@
             this.txtCodigo.Location = new System.Drawing.Point(110, 31);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 20);
-            this.txtCodigo.TabIndex = 1;
+            this.txtCodigo.TabIndex = 0;
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(110, 102);
+            this.txtPrecio.Location = new System.Drawing.Point(110, 110);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
             this.txtPrecio.TabIndex = 3;
@@ -68,7 +72,7 @@
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(43, 105);
+            this.lblPrecio.Location = new System.Drawing.Point(43, 110);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(37, 13);
             this.lblPrecio.TabIndex = 2;
@@ -76,15 +80,15 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(110, 65);
+            this.txtNombre.Location = new System.Drawing.Point(110, 57);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtNombre.TabIndex = 5;
+            this.txtNombre.TabIndex = 1;
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(43, 65);
+            this.lblNombre.Location = new System.Drawing.Point(43, 57);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 4;
@@ -114,10 +118,10 @@
             // 
             this.cboMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMarca.FormattingEnabled = true;
-            this.cboMarca.Location = new System.Drawing.Point(110, 137);
+            this.cboMarca.Location = new System.Drawing.Point(110, 136);
             this.cboMarca.Name = "cboMarca";
             this.cboMarca.Size = new System.Drawing.Size(121, 21);
-            this.cboMarca.TabIndex = 8;
+            this.cboMarca.TabIndex = 4;
             // 
             // cboCategoria
             // 
@@ -126,7 +130,7 @@
             this.cboCategoria.Location = new System.Drawing.Point(110, 164);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(121, 21);
-            this.cboCategoria.TabIndex = 9;
+            this.cboCategoria.TabIndex = 5;
             // 
             // lblMarca
             // 
@@ -146,11 +150,40 @@
             this.lblCategoria.TabIndex = 11;
             this.lblCategoria.Text = "Categoría";
             // 
+            // pboArticulo
+            // 
+            this.pboArticulo.Location = new System.Drawing.Point(272, 31);
+            this.pboArticulo.Name = "pboArticulo";
+            this.pboArticulo.Size = new System.Drawing.Size(155, 154);
+            this.pboArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pboArticulo.TabIndex = 12;
+            this.pboArticulo.TabStop = false;
+            // 
+            // lblImagenUrl
+            // 
+            this.lblImagenUrl.AutoSize = true;
+            this.lblImagenUrl.Location = new System.Drawing.Point(42, 84);
+            this.lblImagenUrl.Name = "lblImagenUrl";
+            this.lblImagenUrl.Size = new System.Drawing.Size(58, 13);
+            this.lblImagenUrl.TabIndex = 13;
+            this.lblImagenUrl.Text = "Url Imagen";
+            // 
+            // txtImagenUrl
+            // 
+            this.txtImagenUrl.Location = new System.Drawing.Point(110, 84);
+            this.txtImagenUrl.Name = "txtImagenUrl";
+            this.txtImagenUrl.Size = new System.Drawing.Size(100, 20);
+            this.txtImagenUrl.TabIndex = 2;
+            this.txtImagenUrl.Leave += new System.EventHandler(this.txtImagenUrl_Leave);
+            // 
             // FrmAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(353, 252);
+            this.ClientSize = new System.Drawing.Size(477, 253);
+            this.Controls.Add(this.txtImagenUrl);
+            this.Controls.Add(this.lblImagenUrl);
+            this.Controls.Add(this.pboArticulo);
             this.Controls.Add(this.lblCategoria);
             this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.cboCategoria);
@@ -166,6 +199,7 @@
             this.Name = "FrmAltaArticulo";
             this.Text = "Alta Artículo";
             this.Load += new System.EventHandler(this.FrmAltaArticulo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pboArticulo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +219,8 @@
         private System.Windows.Forms.ComboBox cboCategoria;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.Label lblCategoria;
+        private System.Windows.Forms.PictureBox pboArticulo;
+        private System.Windows.Forms.Label lblImagenUrl;
+        private System.Windows.Forms.TextBox txtImagenUrl;
     }
 }

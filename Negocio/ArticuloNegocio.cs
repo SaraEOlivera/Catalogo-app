@@ -34,7 +34,10 @@ namespace Negocio
                     auxiliar.Codigo = (string)lector["Codigo"];
                     auxiliar.Nombre = (string)lector["Nombre"];
                     auxiliar.Precio = lector.GetDecimal(lector.GetOrdinal("Precio"));
-                    auxiliar.ImagenUrl = (string)lector["ImagenUrl"];
+
+                    if (!(lector["ImagenUrl"] is DBNull))
+                        auxiliar.ImagenUrl = (string)lector["ImagenUrl"];
+
 
                     auxiliar.Marca = new Marca();
                     auxiliar.Marca.Descripcion = (string)lector["Marca"];
@@ -62,12 +65,13 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Precio, IdMarca, IdCategoria) VALUES ("
+                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Precio, IdMarca, IdCategoria, ImagenUrl) VALUES ("
                             + nuevo.Codigo + ", '"
                             + nuevo.Nombre + "', "
-                            + nuevo.Precio + ", @IdMarca, @IdCategoria)");
+                            + nuevo.Precio + ", @IdMarca, @IdCategoria, @ImagenUrl)");
                 datos.setearParametro("@IdMarca", nuevo.Marca.Id);
                 datos.setearParametro("@IdCategoria", nuevo.Categoria.Id);
+                datos.setearParametro("@ImagenUrl", nuevo.ImagenUrl);
 
                 datos.ejecutarAccion();
             }
