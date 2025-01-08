@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using Dominio;
 using System.Security.AccessControl;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Negocio
 {
@@ -135,8 +136,97 @@ namespace Negocio
             }
         }
 
+        public List <Articulo>filtrar(string campo, string criterio, string filtro)
+        {
+            List<Articulo>lista = new List<Articulo> ();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                string consulta = "Select Codigo, Nombre, Precio, ImagenUrl, M.Descripcion as Marca, C.Descripcion as Categoria, M.Id as MarcaId, c.Id as CategoriaId, A.Id as ArticuloId from ARTICULOS A, MARCAS M, CATEGORIAS C where M.Id = A.IdMarca and C.Id = A.IdCategoria and ";
+                if (campo == "Nombre")
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "Nombre like '" + filtro + "%' "; 
+                            break;
+                        case "Termina con":
+                            consulta += "Nombre like '%" + filtro + "' "; 
+                            break;
+                        default:
+                            consulta += "Nombre like '%" + filtro + "%' ";
+                            break;
+                    }
+                }
+                else if (campo == "Precio")
+                {
+                    switch (criterio)
+                    {
+                        case "Mayor a":
+                            consulta += "Precio > " + filtro;
+                            break;
+                        case "Menor a":
+                            consulta += "Precio < " + filtro;
+                            break;
+                        default:
+                            consulta += "Precio = " + filtro;
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "M.Descripcion like '" + filtro + "%' "; 
+                            break;
+                        case "Termina con":
+                            consulta += "M.Descripcion like '%" + filtro + "' "; 
+                            break;
+                        default:
+                            consulta += "M.Descripcion like '%" + filtro + "%' ";
+                            break;
+                    }
+                }
 
 
+                datos.setearConsulta(consulta);
+                datos.ejecutarConsulta();
+
+                //while de listar()
+                while (datos.Lector.Read())
+                {
+                    Articulo auxiliar = new Articulo();
+                    auxiliar.Id = (int)datos.Lector["ArticuloId"];
+                    auxiliar.Codigo = (string)datos.Lector["Codigo"];
+                    auxiliar.Nombre = (string)datos.Lector["Nombre"];
+                    auxiliar.Precio = datos.Lector.GetDecimal(datos.Lector.GetOrdinal("Precio"));
+
+                    if (!(datos.Lector["ImagenUrl"] is DBNull))
+                        auxiliar.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+
+
+                    auxiliar.Marca = new Marca();
+                    auxiliar.Marca.Id = (int)datos.Lector["CategoriaId"];
+                    auxiliar.Marca.Descripcion = (string)datos.Lector["Marca"];
+
+                    auxiliar.Categoria = new Categoria();
+                    auxiliar.Categoria.Id = (int)datos.Lector["MarcaId"];
+                    auxiliar.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+
+                    lista.Add(auxiliar);
+                }
+
+
+                return lista;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 
 }

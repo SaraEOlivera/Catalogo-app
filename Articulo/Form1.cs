@@ -29,6 +29,11 @@ namespace Presentacion
         private void formPrincipal_Load(object sender, EventArgs e)
         {
             cargar();
+            //Desplegables para elegir el campo
+            cboCampo.Items.Add("Nombre");
+            cboCampo.Items.Add("Precio");
+            cboCampo.Items.Add("Marca");
+
         }
 
         private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
@@ -116,6 +121,49 @@ namespace Presentacion
                 MessageBox.Show(ex.ToString());
             }
 
+        }
+
+        private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //carga 2do desplegable segun 1ro
+            string opcion = cboCampo.SelectedItem.ToString();
+            if (opcion == "Precio")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Mayor a");
+                cboCriterio.Items.Add("Menor a");
+                cboCriterio.Items.Add("Igual a");
+            }
+            else 
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Comienza con");
+                cboCriterio.Items.Add("Termina con");
+                cboCriterio.Items.Add("Contiene");
+
+
+            }
+        }
+
+        //capturar campos
+        private void btnFiltro_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio datos = new ArticuloNegocio();
+            try
+            {
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCriterio.SelectedItem.ToString();
+                string filtro = txtFiltro.Text;
+
+                dgvArticulo.DataSource = datos.filtrar(campo, criterio, filtro);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }    
         }
     }
 }
