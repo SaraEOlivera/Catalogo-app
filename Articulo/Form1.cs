@@ -24,6 +24,8 @@ namespace Presentacion
             InitializeComponent();
         }
 
+
+
         private void formPrincipal_Load(object sender, EventArgs e)
         {
             cargar();
@@ -41,9 +43,13 @@ namespace Presentacion
             try
             {
                 listaArticulo = negocio.listar();
+                //limpiar el datasource
+                dgvArticulo.DataSource = null;
                 dgvArticulo.DataSource = listaArticulo;
                 dgvArticulo.Columns["ImagenUrl"].Visible = false;
                 dgvArticulo.Columns["Categoria"].Visible = false;
+                dgvArticulo.Columns["Id"].Visible = false;
+
 
                 cargarImagen(listaArticulo[0].ImagenUrl);
             }
@@ -72,6 +78,17 @@ namespace Presentacion
             FrmAltaArticulo alta = new FrmAltaArticulo();
             alta.ShowDialog();
             cargar();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Dominio.Articulo seleccionado;
+            seleccionado = (Dominio.Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+
+            FrmAltaArticulo modificar = new FrmAltaArticulo(seleccionado);
+            modificar.ShowDialog();
+            cargar();
+
         }
     }
 }
