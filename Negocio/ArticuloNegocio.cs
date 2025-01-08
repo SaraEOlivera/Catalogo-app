@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using Dominio;
+using System.Security.AccessControl;
 
 namespace Negocio
 {
     public class ArticuloNegocio
     {
-        public List<Articulo> listar() 
+        public List<Articulo> listar()
         {
             List<Articulo> lista = new List<Articulo>();
 
@@ -59,7 +60,7 @@ namespace Negocio
 
                 throw ex;
             }
-            finally 
+            finally
             {
                 conexion.Close();
             }
@@ -85,7 +86,7 @@ namespace Negocio
             {
                 throw ex;
             }
-            finally 
+            finally
             {
                 datos.cerrarConexion();
             }
@@ -112,13 +113,30 @@ namespace Negocio
             {
                 throw ex;
             }
-            finally 
+            finally
             {
                 datos.cerrarConexion();
             }
         }
+
+        public void eliminar(int id)
+        {
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+                datos.setearConsulta("Delete from ARTICULOS Where Id= @id");
+                datos.setearParametro("@id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
+
     }
-
-
 
 }

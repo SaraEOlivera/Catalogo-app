@@ -90,5 +90,32 @@ namespace Presentacion
             cargar();
 
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio datos = new ArticuloNegocio();
+            Dominio.Articulo seleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿Quiere eliminar este artículo?",
+                    "Eliminar artículo", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes) 
+                {
+                    seleccionado = (Dominio.Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+                    datos.eliminar(seleccionado.Id);
+                    //actualizar la grilla sin los eliminados
+                    cargar();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+
+        }
     }
 }
