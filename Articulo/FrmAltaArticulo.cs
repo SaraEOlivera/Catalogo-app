@@ -38,11 +38,29 @@ namespace Articulo
             Close();
         }
 
+        //Validar form de alta
+        private bool validarCamposAlta() 
+        {
+            if (string.IsNullOrEmpty(txtCodigo.Text)) 
+            {
+                MessageBox.Show("Debe completar el campo Código", "Ata de artículo");
+                return true;
+            }
+            if (string.IsNullOrEmpty(txtNombre.Text)) 
+            {
+                MessageBox.Show("Debe completar el campo Nombre", "Ata de artículo");
+            }
+            return false;
+        }
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             ArticuloNegocio datos = new ArticuloNegocio();
             try
             {
+                if (validarCamposAlta())
+                    return;
+
                 if (articulo == null)
                     articulo = new Dominio.Articulo();
 

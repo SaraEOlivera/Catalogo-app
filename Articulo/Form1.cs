@@ -25,7 +25,6 @@ namespace Presentacion
         }
 
 
-
         private void formPrincipal_Load(object sender, EventArgs e)
         {
             cargar();
@@ -33,13 +32,17 @@ namespace Presentacion
             cboCampo.Items.Add("Nombre");
             cboCampo.Items.Add("Precio");
             cboCampo.Items.Add("Marca");
-
+            validarEstadoBotones();
         }
 
         private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
         {
-             Dominio.Articulo seleccionado = (Dominio.Articulo)dgvArticulo.CurrentRow.DataBoundItem;
-            cargarImagen(seleccionado.ImagenUrl);
+            if (dgvArticulo.CurrentRow != null) 
+            {
+                Dominio.Articulo seleccionado = (Dominio.Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+                cargarImagen(seleccionado.ImagenUrl);
+            }
+            validarEstadoBotones();
         }
 
         private void cargar() 
@@ -93,6 +96,7 @@ namespace Presentacion
             FrmAltaArticulo modificar = new FrmAltaArticulo(seleccionado);
             modificar.ShowDialog();
             cargar();
+            validarEstadoBotones();
 
         }
 
@@ -111,6 +115,8 @@ namespace Presentacion
                     datos.eliminar(seleccionado.Id);
                     //actualizar la grilla sin los eliminados
                     cargar();
+                    validarEstadoBotones();
+
                 }
 
 
@@ -145,25 +151,84 @@ namespace Presentacion
             }
         }
 
+        //validar filtro
+        private bool validarFiltro() 
+        {
+            if (cboCampo.SelectedIndex < 0) 
+            {
+                MessageBox.Show("Debe seleccionar un Campo", "Filtrar por criterios");
+                return true;
+            }
+            if (cboCriterio.SelectedIndex < 0)
+            {
+                MessageBox.Show("Debe seleccionar un Criterio", "Filtrar por criterios");
+                return true;
+            }
+            if (cboCampo.SelectedItem.ToString() == "Precio") 
+            {
+                //validar que el filtro no este vacio
+                if (string.IsNullOrEmpty(txtFiltro.Text)) 
+                {
+                    MessageBox.Show("Hay que completar el filtro", "Filtrar por criterios");
+                    return true;
+                }
+                if (!(soloNumeros(txtFiltro.Text))) 
+                {
+                    MessageBox.Show("Solo se pueden ingresar números bajo este campo", "Filtrar por criterios");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        private bool soloNumeros(string cadena) 
+        {
+            foreach (char caracter in cadena)
+            {
+                if (!(char.IsNumber(caracter)))
+                    return false;
+            }
+            return true;
+        }
+
         //capturar campos
         private void btnFiltro_Click(object sender, EventArgs e)
         {
             ArticuloNegocio datos = new ArticuloNegocio();
             try
             {
+                if (validarFiltro())
+                    return;
+
                 string campo = cboCampo.SelectedItem.ToString();
                 string criterio = cboCriterio.SelectedItem.ToString();
                 string filtro = txtFiltro.Text;
 
                 dgvArticulo.DataSource = datos.filtrar(campo, criterio, filtro);
 
-
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-            }    
+            }
+            validarEstadoBotones();
+
+        }
+
+        //Validar botones
+        private void validarEstadoBotones() 
+        {
+            if (dgvArticulo.Rows.Count == 0)
+            {
+                btnModificar.Enabled = false;
+                btnEliminar.Enabled = false;
+            }
+            else 
+            {
+                btnModificar.Enabled = true;
+                btnEliminar.Enabled = true;
+            }
         }
     }
 }
