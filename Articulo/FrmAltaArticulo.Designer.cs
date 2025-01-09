@@ -43,6 +43,7 @@
             this.pboArticulo = new System.Windows.Forms.PictureBox();
             this.lblImagenUrl = new System.Windows.Forms.Label();
             this.txtImagenUrl = new System.Windows.Forms.TextBox();
+            this.btnAgregarImagen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pboArticulo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,14 +60,14 @@
             // 
             this.txtCodigo.Location = new System.Drawing.Point(110, 31);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(100, 20);
+            this.txtCodigo.Size = new System.Drawing.Size(121, 20);
             this.txtCodigo.TabIndex = 0;
             // 
             // txtPrecio
             // 
             this.txtPrecio.Location = new System.Drawing.Point(110, 110);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(100, 20);
+            this.txtPrecio.Size = new System.Drawing.Size(121, 20);
             this.txtPrecio.TabIndex = 3;
             // 
             // lblPrecio
@@ -82,7 +83,7 @@
             // 
             this.txtNombre.Location = new System.Drawing.Point(110, 57);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 20);
+            this.txtNombre.Size = new System.Drawing.Size(121, 20);
             this.txtNombre.TabIndex = 1;
             // 
             // lblNombre
@@ -172,15 +173,26 @@
             // 
             this.txtImagenUrl.Location = new System.Drawing.Point(110, 84);
             this.txtImagenUrl.Name = "txtImagenUrl";
-            this.txtImagenUrl.Size = new System.Drawing.Size(100, 20);
+            this.txtImagenUrl.Size = new System.Drawing.Size(121, 20);
             this.txtImagenUrl.TabIndex = 2;
             this.txtImagenUrl.Leave += new System.EventHandler(this.txtImagenUrl_Leave);
+            // 
+            // btnAgregarImagen
+            // 
+            this.btnAgregarImagen.Location = new System.Drawing.Point(237, 84);
+            this.btnAgregarImagen.Name = "btnAgregarImagen";
+            this.btnAgregarImagen.Size = new System.Drawing.Size(29, 20);
+            this.btnAgregarImagen.TabIndex = 14;
+            this.btnAgregarImagen.Text = "+";
+            this.btnAgregarImagen.UseVisualStyleBackColor = true;
+            this.btnAgregarImagen.Click += new System.EventHandler(this.btnAgregarImagen_Click);
             // 
             // FrmAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(477, 253);
+            this.Controls.Add(this.btnAgregarImagen);
             this.Controls.Add(this.txtImagenUrl);
             this.Controls.Add(this.lblImagenUrl);
             this.Controls.Add(this.pboArticulo);
@@ -222,5 +234,6 @@
         private System.Windows.Forms.PictureBox pboArticulo;
         private System.Windows.Forms.Label lblImagenUrl;
         private System.Windows.Forms.TextBox txtImagenUrl;
+        private System.Windows.Forms.Button btnAgregarImagen;
     }
 }

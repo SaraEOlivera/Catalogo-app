@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +18,7 @@ namespace Articulo
     public partial class FrmAltaArticulo : Form
     {
         private Dominio.Articulo articulo = null;
+        private OpenFileDialog archivo = null;
 
         public FrmAltaArticulo()
         {
@@ -62,10 +65,13 @@ namespace Articulo
                     datos.agregar(articulo);
                     MessageBox.Show("Artículo Agregado");
                 }
+                //si la img se levanta local
+                if(archivo != null && !(txtImagenUrl.Text.Contains("HTTP")))
+                    File.Copy(archivo.FileName, ConfigurationManager.AppSettings["img-folder"] + archivo.SafeFileName);
 
 
 
-                Close();
+                    Close();
             }
             catch (Exception ex)
             {
@@ -126,6 +132,21 @@ namespace Articulo
             catch (Exception ex)
             {
                 pboArticulo.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
+            }
+        }
+
+        private void btnAgregarImagen_Click(object sender, EventArgs e)
+        {
+            archivo = new OpenFileDialog();
+            archivo.Filter = "jpg|*.jpg;|png|*.png";
+            //archivo.ShowDialog();
+            if (archivo.ShowDialog() == DialogResult.OK) 
+            {
+                txtImagenUrl.Text = archivo.FileName;
+                cargarImagen(archivo.FileName);
+                //File.Copy(archivo.FileName, ConfigurationManager.AppSettings["img-folder"] + archivo.SafeFileName);
+
+
             }
         }
     }
