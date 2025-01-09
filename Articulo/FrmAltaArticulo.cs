@@ -43,12 +43,16 @@ namespace Articulo
         {
             if (string.IsNullOrEmpty(txtCodigo.Text)) 
             {
-                MessageBox.Show("Debe completar el campo Código", "Ata de artículo");
+                MessageBox.Show("Debe completar el campo Código", "Ata de artículo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
                 return true;
             }
             if (string.IsNullOrEmpty(txtNombre.Text)) 
             {
-                MessageBox.Show("Debe completar el campo Nombre", "Ata de artículo");
+                MessageBox.Show("Debe completar el campo Nombre", "Ata de artículo",
+                     MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
             }
             return false;
         }

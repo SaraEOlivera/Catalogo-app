@@ -40,6 +40,7 @@
             this.cboCampo = new System.Windows.Forms.ComboBox();
             this.cboCriterio = new System.Windows.Forms.ComboBox();
             this.txtFiltro = new System.Windows.Forms.TextBox();
+            this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboArticulo)).BeginInit();
             this.SuspendLayout();
@@ -107,7 +108,7 @@
             // lblCriterio
             // 
             this.lblCriterio.AutoSize = true;
-            this.lblCriterio.Location = new System.Drawing.Point(198, 232);
+            this.lblCriterio.Location = new System.Drawing.Point(194, 232);
             this.lblCriterio.Name = "lblCriterio";
             this.lblCriterio.Size = new System.Drawing.Size(39, 13);
             this.lblCriterio.TabIndex = 7;
@@ -116,7 +117,7 @@
             // lblFiltro
             // 
             this.lblFiltro.AutoSize = true;
-            this.lblFiltro.Location = new System.Drawing.Point(387, 233);
+            this.lblFiltro.Location = new System.Drawing.Point(369, 233);
             this.lblFiltro.Name = "lblFiltro";
             this.lblFiltro.Size = new System.Drawing.Size(29, 13);
             this.lblFiltro.TabIndex = 9;
@@ -124,7 +125,7 @@
             // 
             // btnFiltro
             // 
-            this.btnFiltro.Location = new System.Drawing.Point(528, 226);
+            this.btnFiltro.Location = new System.Drawing.Point(517, 226);
             this.btnFiltro.Name = "btnFiltro";
             this.btnFiltro.Size = new System.Drawing.Size(75, 23);
             this.btnFiltro.TabIndex = 10;
@@ -146,23 +147,34 @@
             // 
             this.cboCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriterio.FormattingEnabled = true;
-            this.cboCriterio.Location = new System.Drawing.Point(243, 229);
+            this.cboCriterio.Location = new System.Drawing.Point(239, 229);
             this.cboCriterio.Name = "cboCriterio";
             this.cboCriterio.Size = new System.Drawing.Size(121, 21);
             this.cboCriterio.TabIndex = 12;
             // 
             // txtFiltro
             // 
-            this.txtFiltro.Location = new System.Drawing.Point(422, 230);
+            this.txtFiltro.Location = new System.Drawing.Point(404, 230);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(100, 20);
             this.txtFiltro.TabIndex = 13;
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(598, 226);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(75, 23);
+            this.btnVolver.TabIndex = 14;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // formPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(705, 272);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.cboCriterio);
             this.Controls.Add(this.cboCampo);
@@ -199,6 +211,7 @@
         private System.Windows.Forms.ComboBox cboCampo;
         private System.Windows.Forms.ComboBox cboCriterio;
         private System.Windows.Forms.TextBox txtFiltro;
+        private System.Windows.Forms.Button btnVolver;
     }
 }
 

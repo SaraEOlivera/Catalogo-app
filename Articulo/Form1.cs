@@ -28,6 +28,7 @@ namespace Presentacion
         private void formPrincipal_Load(object sender, EventArgs e)
         {
             cargar();
+            btnVolver.Visible = false;
             //Desplegables para elegir el campo
             cboCampo.Items.Add("Nombre");
             cboCampo.Items.Add("Precio");
@@ -156,12 +157,17 @@ namespace Presentacion
         {
             if (cboCampo.SelectedIndex < 0) 
             {
-                MessageBox.Show("Debe seleccionar un Campo", "Filtrar por criterios");
+                MessageBox.Show("Debe seleccionar un Campo", "Filtrar por criterios",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
                 return true;
             }
             if (cboCriterio.SelectedIndex < 0)
             {
-                MessageBox.Show("Debe seleccionar un Criterio", "Filtrar por criterios");
+                MessageBox.Show("Debe seleccionar un Criterio", "Filtrar por criterios",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation); 
                 return true;
             }
             if (cboCampo.SelectedItem.ToString() == "Precio") 
@@ -169,7 +175,9 @@ namespace Presentacion
                 //validar que el filtro no este vacio
                 if (string.IsNullOrEmpty(txtFiltro.Text)) 
                 {
-                    MessageBox.Show("Hay que completar el filtro", "Filtrar por criterios");
+                    MessageBox.Show("Hay que completar el filtro", "Filtrar por criterios",
+                        MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
                     return true;
                 }
                 if (!(soloNumeros(txtFiltro.Text))) 
@@ -206,6 +214,7 @@ namespace Presentacion
                 string filtro = txtFiltro.Text;
 
                 dgvArticulo.DataSource = datos.filtrar(campo, criterio, filtro);
+                btnVolver.Visible = true;
 
             }
             catch (Exception ex)
@@ -229,6 +238,12 @@ namespace Presentacion
                 btnModificar.Enabled = true;
                 btnEliminar.Enabled = true;
             }
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            cargar();
+            btnVolver.Visible = false;
         }
     }
 }
