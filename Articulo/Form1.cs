@@ -58,6 +58,7 @@ namespace Presentacion
                 dgvArticulo.Columns["ImagenUrl"].Visible = false;
                 dgvArticulo.Columns["Categoria"].Visible = false;
                 dgvArticulo.Columns["Id"].Visible = false;
+                dgvArticulo.Columns["Descripcion"].Visible = false;
 
 
                 cargarImagen(listaArticulo[0].ImagenUrl);
@@ -182,7 +183,7 @@ namespace Presentacion
                 }
                 if (!(soloNumeros(txtFiltro.Text))) 
                 {
-                    MessageBox.Show("Solo se pueden ingresar números bajo este campo", "Filtrar por criterios");
+                    MessageBox.Show("Solo se pueden ingresar números bajo este campo", "Filtrar por criterios", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return true;
                 }
             }
@@ -244,6 +245,19 @@ namespace Presentacion
         {
             cargar();
             btnVolver.Visible = false;
+        }
+
+        private void dgvArticulo_CellDoubleClick(object sender, DataGridViewCellEventArgs evento)
+        {
+            if (evento.RowIndex >= 0) 
+            {
+                Dominio.Articulo filaSeleccionada = (Dominio.Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+
+                FrmDetalle vista = new FrmDetalle(filaSeleccionada);
+                vista.ShowDialog();
+
+            }
+            
         }
     }
 }

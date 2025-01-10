@@ -48,7 +48,7 @@
             // lblCodigoDetalle
             // 
             this.lblCodigoDetalle.AutoSize = true;
-            this.lblCodigoDetalle.Location = new System.Drawing.Point(64, 17);
+            this.lblCodigoDetalle.Location = new System.Drawing.Point(35, 13);
             this.lblCodigoDetalle.Name = "lblCodigoDetalle";
             this.lblCodigoDetalle.Size = new System.Drawing.Size(40, 13);
             this.lblCodigoDetalle.TabIndex = 0;
@@ -56,22 +56,24 @@
             // 
             // txtCodigoDetalle
             // 
-            this.txtCodigoDetalle.Location = new System.Drawing.Point(122, 13);
+            this.txtCodigoDetalle.Location = new System.Drawing.Point(81, 13);
             this.txtCodigoDetalle.Name = "txtCodigoDetalle";
-            this.txtCodigoDetalle.Size = new System.Drawing.Size(295, 20);
+            this.txtCodigoDetalle.ReadOnly = true;
+            this.txtCodigoDetalle.Size = new System.Drawing.Size(336, 20);
             this.txtCodigoDetalle.TabIndex = 1;
             // 
             // txtPrecioDetalle
             // 
-            this.txtPrecioDetalle.Location = new System.Drawing.Point(122, 205);
+            this.txtPrecioDetalle.Location = new System.Drawing.Point(81, 205);
             this.txtPrecioDetalle.Name = "txtPrecioDetalle";
-            this.txtPrecioDetalle.Size = new System.Drawing.Size(295, 20);
+            this.txtPrecioDetalle.ReadOnly = true;
+            this.txtPrecioDetalle.Size = new System.Drawing.Size(336, 20);
             this.txtPrecioDetalle.TabIndex = 3;
             // 
             // lblPrecioDetalle
             // 
             this.lblPrecioDetalle.AutoSize = true;
-            this.lblPrecioDetalle.Location = new System.Drawing.Point(66, 208);
+            this.lblPrecioDetalle.Location = new System.Drawing.Point(37, 204);
             this.lblPrecioDetalle.Name = "lblPrecioDetalle";
             this.lblPrecioDetalle.Size = new System.Drawing.Size(37, 13);
             this.lblPrecioDetalle.TabIndex = 4;
@@ -79,15 +81,16 @@
             // 
             // txtMarcaDetalle
             // 
-            this.txtMarcaDetalle.Location = new System.Drawing.Point(122, 130);
+            this.txtMarcaDetalle.Location = new System.Drawing.Point(81, 130);
             this.txtMarcaDetalle.Name = "txtMarcaDetalle";
-            this.txtMarcaDetalle.Size = new System.Drawing.Size(295, 20);
+            this.txtMarcaDetalle.ReadOnly = true;
+            this.txtMarcaDetalle.Size = new System.Drawing.Size(336, 20);
             this.txtMarcaDetalle.TabIndex = 7;
             // 
             // lblCategoriaDetalle
             // 
             this.lblCategoriaDetalle.AutoSize = true;
-            this.lblCategoriaDetalle.Location = new System.Drawing.Point(47, 174);
+            this.lblCategoriaDetalle.Location = new System.Drawing.Point(18, 170);
             this.lblCategoriaDetalle.Name = "lblCategoriaDetalle";
             this.lblCategoriaDetalle.Size = new System.Drawing.Size(54, 13);
             this.lblCategoriaDetalle.TabIndex = 6;
@@ -95,15 +98,16 @@
             // 
             // txtCategoriaDetalle
             // 
-            this.txtCategoriaDetalle.Location = new System.Drawing.Point(122, 171);
+            this.txtCategoriaDetalle.Location = new System.Drawing.Point(81, 171);
             this.txtCategoriaDetalle.Name = "txtCategoriaDetalle";
-            this.txtCategoriaDetalle.Size = new System.Drawing.Size(295, 20);
+            this.txtCategoriaDetalle.ReadOnly = true;
+            this.txtCategoriaDetalle.Size = new System.Drawing.Size(336, 20);
             this.txtCategoriaDetalle.TabIndex = 9;
             // 
             // lblMarcaDetalle
             // 
             this.lblMarcaDetalle.AutoSize = true;
-            this.lblMarcaDetalle.Location = new System.Drawing.Point(64, 137);
+            this.lblMarcaDetalle.Location = new System.Drawing.Point(35, 133);
             this.lblMarcaDetalle.Name = "lblMarcaDetalle";
             this.lblMarcaDetalle.Size = new System.Drawing.Size(37, 13);
             this.lblMarcaDetalle.TabIndex = 8;
@@ -111,15 +115,16 @@
             // 
             // txtDescripcionDetalle
             // 
-            this.txtDescripcionDetalle.Location = new System.Drawing.Point(122, 91);
+            this.txtDescripcionDetalle.Location = new System.Drawing.Point(81, 91);
             this.txtDescripcionDetalle.Name = "txtDescripcionDetalle";
-            this.txtDescripcionDetalle.Size = new System.Drawing.Size(295, 20);
+            this.txtDescripcionDetalle.ReadOnly = true;
+            this.txtDescripcionDetalle.Size = new System.Drawing.Size(336, 20);
             this.txtDescripcionDetalle.TabIndex = 11;
             // 
             // lblDescripcionDetalle
             // 
             this.lblDescripcionDetalle.AutoSize = true;
-            this.lblDescripcionDetalle.Location = new System.Drawing.Point(41, 98);
+            this.lblDescripcionDetalle.Location = new System.Drawing.Point(12, 94);
             this.lblDescripcionDetalle.Name = "lblDescripcionDetalle";
             this.lblDescripcionDetalle.Size = new System.Drawing.Size(63, 13);
             this.lblDescripcionDetalle.TabIndex = 10;
@@ -127,15 +132,16 @@
             // 
             // txtNombreDetalle
             // 
-            this.txtNombreDetalle.Location = new System.Drawing.Point(122, 53);
+            this.txtNombreDetalle.Location = new System.Drawing.Point(81, 53);
             this.txtNombreDetalle.Name = "txtNombreDetalle";
-            this.txtNombreDetalle.Size = new System.Drawing.Size(295, 20);
+            this.txtNombreDetalle.ReadOnly = true;
+            this.txtNombreDetalle.Size = new System.Drawing.Size(336, 20);
             this.txtNombreDetalle.TabIndex = 13;
             // 
             // lblNombreDetalle
             // 
             this.lblNombreDetalle.AutoSize = true;
-            this.lblNombreDetalle.Location = new System.Drawing.Point(64, 57);
+            this.lblNombreDetalle.Location = new System.Drawing.Point(35, 53);
             this.lblNombreDetalle.Name = "lblNombreDetalle";
             this.lblNombreDetalle.Size = new System.Drawing.Size(40, 13);
             this.lblNombreDetalle.TabIndex = 12;
@@ -143,19 +149,20 @@
             // 
             // btnVolverDetalle
             // 
-            this.btnVolverDetalle.Location = new System.Drawing.Point(436, 201);
+            this.btnVolverDetalle.Location = new System.Drawing.Point(445, 201);
             this.btnVolverDetalle.Name = "btnVolverDetalle";
-            this.btnVolverDetalle.Size = new System.Drawing.Size(212, 26);
+            this.btnVolverDetalle.Size = new System.Drawing.Size(203, 24);
             this.btnVolverDetalle.TabIndex = 14;
             this.btnVolverDetalle.Text = "Volver";
             this.btnVolverDetalle.UseVisualStyleBackColor = true;
-            this.btnVolverDetalle.Click += new System.EventHandler(this.btnVolver_Click);
+            this.btnVolverDetalle.Click += new System.EventHandler(this.btnVolverDetalle_Click);
             // 
             // pboImagenUrlDetalle
             // 
             this.pboImagenUrlDetalle.Location = new System.Drawing.Point(445, 17);
             this.pboImagenUrlDetalle.Name = "pboImagenUrlDetalle";
             this.pboImagenUrlDetalle.Size = new System.Drawing.Size(203, 174);
+            this.pboImagenUrlDetalle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pboImagenUrlDetalle.TabIndex = 15;
             this.pboImagenUrlDetalle.TabStop = false;
             // 
@@ -163,7 +170,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(681, 251);
+            this.ClientSize = new System.Drawing.Size(671, 239);
             this.Controls.Add(this.pboImagenUrlDetalle);
             this.Controls.Add(this.btnVolverDetalle);
             this.Controls.Add(this.txtNombreDetalle);
@@ -179,7 +186,8 @@
             this.Controls.Add(this.txtCodigoDetalle);
             this.Controls.Add(this.lblCodigoDetalle);
             this.Name = "FrmDetalle";
-            this.Text = "FrmDetalle";
+            this.Text = "Vista Detallada";
+            this.Load += new System.EventHandler(this.FrmDetalle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pboImagenUrlDetalle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

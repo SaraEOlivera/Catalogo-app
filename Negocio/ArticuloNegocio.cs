@@ -24,7 +24,7 @@ namespace Negocio
             {
                 conexion.ConnectionString = "server= .\\SQLEXPRESS;  database = CATALOGO_DB; Integrated Security = true";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "Select Codigo, Nombre, Precio, ImagenUrl, M.Descripcion as Marca, C.Descripcion as Categoria, M.Id as MarcaId, c.Id as CategoriaId, A.Id as ArticuloId from ARTICULOS A, MARCAS M, CATEGORIAS C where M.Id = A.IdMarca and C.Id = A.IdCategoria";
+                comando.CommandText = "Select Codigo, Nombre, A.Descripcion as Descripcion, Precio, ImagenUrl, M.Descripcion as Marca, C.Descripcion as Categoria, M.Id as MarcaId, c.Id as CategoriaId, A.Id as ArticuloId from ARTICULOS A, MARCAS M, CATEGORIAS C where M.Id = A.IdMarca and C.Id = A.IdCategoria";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -40,6 +40,17 @@ namespace Negocio
 
                     if (!(lector["ImagenUrl"] is DBNull))
                         auxiliar.ImagenUrl = (string)lector["ImagenUrl"];
+
+
+                    //Validar descripcion para la vista
+                    if (lector["Descripcion"] is DBNull)
+                    {
+                        auxiliar.Descripcion = "Este artículo no contiene una descripción";
+                    }
+                    else 
+                    {
+                        auxiliar.Descripcion = (string)lector["Descripcion"];
+                    }
 
 
                     auxiliar.Marca = new Marca();
