@@ -15,6 +15,7 @@ namespace Articulo
 {
     public partial class FrmDetalle : Form
     {
+        private Dominio.Articulo seleccionado;  
         public FrmDetalle()
         {
             InitializeComponent();
@@ -23,30 +24,7 @@ namespace Articulo
         public FrmDetalle(Dominio.Articulo articulo)
         {
             InitializeComponent();
-
-            txtCodigoDetalle.Text = articulo.Codigo;
-            txtNombreDetalle.Text = articulo.Nombre;
-            txtDescripcionDetalle.Text = articulo.Descripcion;
-            txtMarcaDetalle.Text = articulo.Marca.Descripcion;
-            txtCategoriaDetalle.Text = articulo.Categoria.Descripcion;
-            txtPrecioDetalle.Text = articulo.Precio.ToString();
-
-            if (!(string.IsNullOrEmpty(articulo.ImagenUrl))) 
-            {
-                try
-                {
-                    pboImagenUrlDetalle.Load(articulo.ImagenUrl);
-
-                }
-                catch (Exception)
-                {
-
-                    pboImagenUrlDetalle.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
-                    ;
-                }
-            }
-
-
+            this.seleccionado = articulo;
         }
 
         private void btnVolverDetalle_Click(object sender, EventArgs e)
@@ -56,7 +34,25 @@ namespace Articulo
 
         private void FrmDetalle_Load(object sender, EventArgs e)
         {
+            txtCodigoDetalle.Text = seleccionado.Codigo;
+            txtNombreDetalle.Text = seleccionado.Nombre;
+            txtDescripcionDetalle.Text = seleccionado.Descripcion;
+            txtMarcaDetalle.Text = seleccionado.Marca.Descripcion;
+            txtCategoriaDetalle.Text = seleccionado.Categoria.Descripcion;
+            txtPrecioDetalle.Text = seleccionado.Precio.ToString();
 
+            if (!(string.IsNullOrEmpty(seleccionado.ImagenUrl)))
+            {
+                try
+                {
+                    pboImagenUrlDetalle.Load(seleccionado.ImagenUrl);
+
+                }
+                catch (Exception)
+                {
+                    pboImagenUrlDetalle.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
+                }
+            }
         }
     }
 }

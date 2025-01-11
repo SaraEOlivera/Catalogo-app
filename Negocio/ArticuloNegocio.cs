@@ -43,14 +43,10 @@ namespace Negocio
 
 
                     //Validar descripcion para la vista
-                    if (lector["Descripcion"] is DBNull)
-                    {
-                        auxiliar.Descripcion = "Este artículo no contiene una descripción";
-                    }
+                    if (lector["Descripcion"] is DBNull)                   
+                        auxiliar.Descripcion = "Este artículo no contiene una descripción";                    
                     else 
-                    {
                         auxiliar.Descripcion = (string)lector["Descripcion"];
-                    }
 
 
                     auxiliar.Marca = new Marca();
@@ -84,15 +80,17 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Precio, IdMarca, IdCategoria, ImagenUrl) VALUES ("
-                            + nuevo.Codigo + ", '"
-                            + nuevo.Nombre + "', "
-                            + nuevo.Precio + ", @IdMarca, @IdCategoria, @ImagenUrl)");
-                datos.setearParametro("@IdMarca", nuevo.Marca.Id);
-                datos.setearParametro("@IdCategoria", nuevo.Categoria.Id);
-                datos.setearParametro("@ImagenUrl", nuevo.ImagenUrl);
 
+                datos.setearConsulta("INSERT INTO ARTICULOS(Codigo, Nombre, Precio, IdMarca, IdCategoria, ImagenUrl) VALUES (@Codigo, @Nombre, @Precio, @IdMarca, @IdCategoria, @ImagenUrl)");
+                 datos.setearParametro("@Codigo", nuevo.Codigo);
+                 datos.setearParametro("@Nombre", nuevo.Nombre);
+                 datos.setearParametro("@Precio", nuevo.Precio);
+                 datos.setearParametro("@IdMarca", nuevo.Marca.Id);
+                 datos.setearParametro("@IdCategoria", nuevo.Categoria.Id);
+                 datos.setearParametro("@ImagenUrl", nuevo.ImagenUrl);
+                 
                 datos.ejecutarAccion();
+
             }
             catch (Exception ex)
             {
