@@ -62,11 +62,21 @@ namespace Presentacion
 
 
                 cargarImagen(listaArticulo[0].ImagenUrl);
+                limitarAnchoColumnas();
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void limitarAnchoColumnas() 
+        {
+            //Para que no se modifique el ancho de columnas
+            foreach (DataGridViewColumn column in dgvArticulo.Columns)
+            {
+                column.Resizable = DataGridViewTriState.False;
             }
         }
 
