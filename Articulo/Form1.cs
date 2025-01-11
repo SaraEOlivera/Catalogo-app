@@ -73,10 +73,9 @@ namespace Presentacion
 
         private void limitarAnchoColumnas() 
         {
-            //Para que no se modifique el ancho de columnas
-            foreach (DataGridViewColumn column in dgvArticulo.Columns)
+            foreach (DataGridViewColumn columna in dgvArticulo.Columns)
             {
-                column.Resizable = DataGridViewTriState.False;
+                columna.Resizable = DataGridViewTriState.False;
             }
         }
 

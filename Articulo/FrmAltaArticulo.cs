@@ -57,13 +57,52 @@ namespace Articulo
             return false;
         }
 
+
+        private bool validarRepetidos(string cod, string nombre ,string imgUrl ) 
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            List<Dominio.Articulo> listaArticulos = negocio.listar();
+
+            foreach (Dominio.Articulo articulo in listaArticulos)
+            {
+                if (articulo.Codigo == cod)
+                {
+                    MessageBox.Show("Este código ya está registrado");
+                    return false;
+                }
+                if (articulo.Nombre == nombre)
+                {
+                    MessageBox.Show("Este nombre ya está registrado");
+                    return false;
+                }
+                if (articulo.ImagenUrl == imgUrl)
+                {
+                    MessageBox.Show("Esta imagen ya está registrada");
+                    return false;
+                }
+
+
+            }
+            return true;
+        }
+
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             ArticuloNegocio datos = new ArticuloNegocio();
+            string imagenUrl = txtImagenUrl.Text;
+            string codigo = txtCodigo.Text;
+            string nombre = txtNombre.Text;
+
             try
             {
                 if (validarCamposAlta())
                     return;
+
+                if (!(validarRepetidos(codigo, nombre, imagenUrl)))
+                {
+                    return;
+                }
 
                 if (articulo == null)
                     articulo = new Dominio.Articulo();
@@ -87,11 +126,10 @@ namespace Articulo
                     datos.agregar(articulo);
                     MessageBox.Show("Artículo Agregado");
                 }
+
                 //si la img se levanta local
                 if(archivo != null && !(txtImagenUrl.Text.Contains("HTTP")))
                     File.Copy(archivo.FileName, ConfigurationManager.AppSettings["img-folder"] + archivo.SafeFileName);
-
-
 
                     Close();
             }
@@ -143,13 +181,14 @@ namespace Articulo
             cargarImagen(txtImagenUrl.Text);
         }
 
+
+
         //Evento copiado del form1
         private void cargarImagen(string imagen)
         {
             try
             {
                 pboArticulo.Load(imagen);
-
             }
             catch (Exception ex)
             {
