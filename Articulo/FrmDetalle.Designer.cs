@@ -153,7 +153,7 @@
             this.btnVolverDetalle.Name = "btnVolverDetalle";
             this.btnVolverDetalle.Size = new System.Drawing.Size(203, 24);
             this.btnVolverDetalle.TabIndex = 14;
-            this.btnVolverDetalle.Text = "Volver";
+            this.btnVolverDetalle.Text = "&Volver";
             this.btnVolverDetalle.UseVisualStyleBackColor = true;
             this.btnVolverDetalle.Click += new System.EventHandler(this.btnVolverDetalle_Click);
             // 
@@ -162,7 +162,7 @@
             this.pboImagenUrlDetalle.Location = new System.Drawing.Point(445, 17);
             this.pboImagenUrlDetalle.Name = "pboImagenUrlDetalle";
             this.pboImagenUrlDetalle.Size = new System.Drawing.Size(203, 174);
-            this.pboImagenUrlDetalle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboImagenUrlDetalle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboImagenUrlDetalle.TabIndex = 15;
             this.pboImagenUrlDetalle.TabStop = false;
             // 
@@ -185,7 +185,13 @@
             this.Controls.Add(this.txtPrecioDetalle);
             this.Controls.Add(this.txtCodigoDetalle);
             this.Controls.Add(this.lblCodigoDetalle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(687, 278);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(687, 278);
             this.Name = "FrmDetalle";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vista Detallada";
             this.Load += new System.EventHandler(this.FrmDetalle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pboImagenUrlDetalle)).EndInit();
