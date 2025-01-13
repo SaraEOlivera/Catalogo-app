@@ -109,6 +109,7 @@ namespace Articulo
 
                 articulo.Codigo = txtCodigo.Text;
                 articulo.Nombre = txtNombre.Text;
+                articulo.Descripcion = txtDescripcion.Text;
                 articulo.Precio = decimal.Parse(txtPrecio.Text);
                 articulo.ImagenUrl = txtImagenUrl.Text;
 
@@ -158,6 +159,7 @@ namespace Articulo
                 {
                     txtCodigo.Text = articulo.Codigo.ToString();
                     txtNombre.Text = articulo.Nombre;
+                    txtDescripcion.Text = articulo.Descripcion;
                     txtPrecio.Text = articulo.Precio.ToString();
                     txtImagenUrl.Text = articulo.ImagenUrl;
 
@@ -180,8 +182,6 @@ namespace Articulo
         {
             cargarImagen(txtImagenUrl.Text);
         }
-
-
 
         //Evento copiado del form1
         private void cargarImagen(string imagen)
