@@ -194,7 +194,7 @@ namespace Presentacion
                     MessageBoxIcon.Exclamation);
                     return true;
                 }
-                if (!(soloNumeros(txtFiltro.Text))) 
+                if (!(soloDecimales(txtFiltro.Text))) 
                 {
                     MessageBox.Show("Solo se pueden ingresar números bajo este campo", "Filtrar por criterios", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return true;
@@ -203,7 +203,7 @@ namespace Presentacion
             return false;
         }
 
-        private bool soloNumeros(string cadena) 
+        private bool soloDecimales(string cadena) 
         {
             foreach (char caracter in cadena)
             {
