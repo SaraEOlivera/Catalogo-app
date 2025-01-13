@@ -41,6 +41,7 @@ namespace Articulo
         //Validar form de alta
         private bool validarCamposAlta() 
         {
+            decimal ingresoPrecio;
             if (string.IsNullOrEmpty(txtCodigo.Text)) 
             {
                 MessageBox.Show("Debe completar el campo Código", "Ata de artículo",
@@ -54,6 +55,15 @@ namespace Articulo
                      MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
             }
+            //validar que se ingrese bien el precio
+            if (!(decimal.TryParse(txtPrecio.Text, out ingresoPrecio)))
+            {
+                MessageBox.Show("Debe ingresar un dato válido en el campo Precio", "Ata de artículo",
+                     MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+                return true;
+            }
+
             return false;
         }
 
