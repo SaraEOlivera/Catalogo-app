@@ -52,9 +52,14 @@ namespace Presentacion
             try
             {
                 listaArticulo = negocio.listar();
+
                 //limpiar el datasource
                 dgvArticulo.DataSource = null;
                 dgvArticulo.DataSource = listaArticulo;
+
+                // Formater los ceros
+                dgvArticulo.Columns["Precio"].DefaultCellStyle.Format = "N2";
+
                 dgvArticulo.Columns["ImagenUrl"].Visible = false;
                 dgvArticulo.Columns["Categoria"].Visible = false;
                 dgvArticulo.Columns["Id"].Visible = false;
