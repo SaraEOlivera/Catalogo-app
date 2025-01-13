@@ -113,15 +113,22 @@ namespace Articulo
 
             try
             {
+                int idArticulo = 0;
+
                 if (validarCamposAlta())
                     return;
 
                 //si se modifica incluir este id para poder continuar
-                if (!(validarRepetidos(codigo, nombre, imagenUrl, articulo?.Id ?? 0)))
+                if (articulo != null) 
+                {
+                    idArticulo = articulo.Id;
+                }
+                
+                if (!(validarRepetidos(codigo, nombre, imagenUrl, idArticulo)))
                 {
                     return;
                 }
-
+                
                 if (articulo == null)
                     articulo = new Dominio.Articulo();
 
