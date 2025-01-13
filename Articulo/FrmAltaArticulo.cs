@@ -63,6 +63,8 @@ namespace Articulo
             ArticuloNegocio negocio = new ArticuloNegocio();
             List<Dominio.Articulo> listaArticulos = negocio.listar();
 
+            string urlImageDefecto = "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png";
+
             foreach (Dominio.Articulo articulo in listaArticulos)
             {
                 if (articulo.Codigo == cod)
@@ -75,7 +77,7 @@ namespace Articulo
                     MessageBox.Show("Este nombre ya está registrado");
                     return false;
                 }
-                if (articulo.ImagenUrl == imgUrl)
+                if (!(string.IsNullOrEmpty(imgUrl)) && !(imgUrl.Trim().Equals(urlImageDefecto.Trim())) && articulo.ImagenUrl == imgUrl)
                 {
                     MessageBox.Show("Esta imagen ya está registrada");
                     return false;
