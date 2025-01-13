@@ -207,7 +207,10 @@ namespace Presentacion
         {
             foreach (char caracter in cadena)
             {
-                if (!(char.IsNumber(caracter)))
+
+                //para que acepte punto en el filtro
+                decimal ingresoFiltro;
+                if (!(decimal.TryParse(cadena, out ingresoFiltro)))
                     return false;
             }
             return true;
@@ -225,6 +228,10 @@ namespace Presentacion
                 string campo = cboCampo.SelectedItem.ToString();
                 string criterio = cboCriterio.SelectedItem.ToString();
                 string filtro = txtFiltro.Text;
+
+                if (campo == "Precio")
+                    filtro = filtro.Replace(',', '.');
+
 
                 dgvArticulo.DataSource = datos.filtrar(campo, criterio, filtro);
                 btnVolver.Visible = true;
@@ -270,6 +277,11 @@ namespace Presentacion
 
             }
             
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
