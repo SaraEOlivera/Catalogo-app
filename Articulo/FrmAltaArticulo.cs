@@ -68,7 +68,7 @@ namespace Articulo
         }
 
 
-        private bool validarRepetidos(string cod, string nombre ,string imgUrl ) 
+        private bool validarRepetidos(string cod, string nombre ,string imgUrl, int IdActual ) 
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             List<Dominio.Articulo> listaArticulos = negocio.listar();
@@ -77,6 +77,11 @@ namespace Articulo
 
             foreach (Dominio.Articulo articulo in listaArticulos)
             {
+
+                //si se modifica ignorar el articulo para las validaciones de repetidos
+                if (articulo.Id == IdActual)
+                    continue;
+
                 if (articulo.Codigo == cod)
                 {
                     MessageBox.Show("Este código ya está registrado");
@@ -111,7 +116,8 @@ namespace Articulo
                 if (validarCamposAlta())
                     return;
 
-                if (!(validarRepetidos(codigo, nombre, imagenUrl)))
+                //si se modifica incluir este id para poder continuar
+                if (!(validarRepetidos(codigo, nombre, imagenUrl, articulo?.Id ?? 0)))
                 {
                     return;
                 }

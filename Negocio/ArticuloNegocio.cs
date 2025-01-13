@@ -108,10 +108,11 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta(" Update ARTICULOS Set Codigo = @codigo, Nombre = @nombre, ImagenUrl = @imagenUrl, Precio = @precio, IdMarca = @idMarca, IdCategoria = @idCategoria Where Id = @id");
+                datos.setearConsulta(" Update ARTICULOS Set Codigo = @codigo, Nombre = @nombre, ImagenUrl = @imagenUrl,Descripcion = @descripcion, Precio = @precio, IdMarca = @idMarca, IdCategoria = @idCategoria Where Id = @id");
                 datos.setearParametro("@codigo ", art.Codigo);
                 datos.setearParametro("@nombre", art.Nombre);
                 datos.setearParametro("@imagenUrl", art.ImagenUrl);
+                datos.setearParametro("@descripcion", art.Descripcion);
                 datos.setearParametro("@precio", art.Precio);
                 datos.setearParametro("@idMarca", art.Marca.Id);
                 datos.setearParametro("@idCategoria", art.Categoria.Id);

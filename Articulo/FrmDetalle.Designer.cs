@@ -143,9 +143,9 @@
             this.lblNombreDetalle.AutoSize = true;
             this.lblNombreDetalle.Location = new System.Drawing.Point(35, 53);
             this.lblNombreDetalle.Name = "lblNombreDetalle";
-            this.lblNombreDetalle.Size = new System.Drawing.Size(40, 13);
+            this.lblNombreDetalle.Size = new System.Drawing.Size(44, 13);
             this.lblNombreDetalle.TabIndex = 12;
-            this.lblNombreDetalle.Text = "Detalle";
+            this.lblNombreDetalle.Text = "Nombre";
             // 
             // btnVolverDetalle
             // 
