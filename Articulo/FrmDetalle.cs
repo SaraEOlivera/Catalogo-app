@@ -39,7 +39,7 @@ namespace Articulo
             txtDescripcionDetalle.Text = seleccionado.Descripcion;
             txtMarcaDetalle.Text = seleccionado.Marca.Descripcion;
             txtCategoriaDetalle.Text = seleccionado.Categoria.Descripcion;
-            txtPrecioDetalle.Text = seleccionado.Precio.ToString();
+            txtPrecioDetalle.Text = seleccionado.Precio.ToString("N2");
 
             if (!(string.IsNullOrEmpty(seleccionado.ImagenUrl)))
             {

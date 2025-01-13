@@ -70,7 +70,7 @@
             this.txtPrecio.Location = new System.Drawing.Point(110, 144);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(121, 20);
-            this.txtPrecio.TabIndex = 3;
+            this.txtPrecio.TabIndex = 4;
             // 
             // lblPrecio
             // 
@@ -102,7 +102,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(46, 227);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 6;
+            this.btnAceptar.TabIndex = 7;
             this.btnAceptar.Text = "&Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -112,7 +112,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(156, 227);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 7;
+            this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -124,7 +124,7 @@
             this.cboMarca.Location = new System.Drawing.Point(110, 170);
             this.cboMarca.Name = "cboMarca";
             this.cboMarca.Size = new System.Drawing.Size(121, 21);
-            this.cboMarca.TabIndex = 4;
+            this.cboMarca.TabIndex = 5;
             // 
             // cboCategoria
             // 
@@ -133,7 +133,7 @@
             this.cboCategoria.Location = new System.Drawing.Point(110, 198);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(121, 21);
-            this.cboCategoria.TabIndex = 5;
+            this.cboCategoria.TabIndex = 6;
             // 
             // lblMarca
             // 
@@ -157,7 +157,7 @@
             // 
             this.pboArticulo.Location = new System.Drawing.Point(272, 31);
             this.pboArticulo.Name = "pboArticulo";
-            this.pboArticulo.Size = new System.Drawing.Size(155, 154);
+            this.pboArticulo.Size = new System.Drawing.Size(181, 188);
             this.pboArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboArticulo.TabIndex = 12;
             this.pboArticulo.TabStop = false;
@@ -203,7 +203,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(110, 113);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(121, 20);
-            this.txtDescripcion.TabIndex = 16;
+            this.txtDescripcion.TabIndex = 3;
             // 
             // FrmAltaArticulo
             // 

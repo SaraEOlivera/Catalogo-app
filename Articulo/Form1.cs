@@ -24,7 +24,6 @@ namespace Presentacion
             InitializeComponent();
         }
 
-
         private void formPrincipal_Load(object sender, EventArgs e)
         {
             cargar();
